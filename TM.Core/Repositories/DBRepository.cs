@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Storage.Models;
 
 namespace TM.Core.Repositories
 {
@@ -8,9 +9,9 @@ namespace TM.Core.Repositories
     {
         private DBContext db;
 
-        public DBRepository(DBContext dBContext)
+        public DBRepository()
         {
-            db = dBContext;
+            db = new DBContext();
         }
 
         public Goal Add(Goal goal)
@@ -37,8 +38,7 @@ namespace TM.Core.Repositories
 
         public Goal Get(int id)
         {
-            var dbGoal = db.Goals.Include(e =>e.GoalExecutors).ThenInclude((e => e.Executor)).First(g => g.Id == id);
-            return dbGoal;
+            return db.Goals.First(a => a.Id == id);
         }
         public Goal GetDone(int id)
         {
@@ -50,8 +50,37 @@ namespace TM.Core.Repositories
 
         public List<Goal> GetAll()
         {
-            var dbGoals = db.Goals.Include(e => e.GoalExecutors).ThenInclude(e => e.Executor).ToList();
-            return dbGoals;
+            return db.Goals.ToList();
         }
+
+        public List<Boss> GetAllBosses()
+        {
+            return db.Bosses.ToList();
+        }
+
+        public List<Executor> GetAllExecutors()
+        {
+            return db.Executors.ToList();
+        }
+        public void AddNewWorker(Executor worker)
+        {
+            db.Executors.Add(worker);
+            db.SaveChanges();
+        }
+        public void AddNewTask(Goal task)
+        {
+            db.Goals.Add(task);
+            db.SaveChanges();
+        }
+        public Goal ReturnTask(int id)
+        {
+            return db.Goals.First(a => a.Id == id);
+        }
+
+        public Executor ReturnWorker(string email)
+        {
+            return db.Executors.First(a => a.Email == email);
+        }
+
     }
 }

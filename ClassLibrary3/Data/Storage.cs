@@ -30,7 +30,7 @@ namespace TM.Data
                 }
                 else
                 {
-                    data.WriteLine("{0},{1},{2},{3},{4},{5},{6}", goals[i - 1].Id, goals[i - 1].Name, goals[i - 1].Text, goals[i - 1].Deadline, goals[i - 1].Timestamp, goals[i - 1].Priority, goals[i - 1].IsDone);
+                    data.WriteLine("{0},{1},{2},{3},{4},{5},{6}", goals[i - 1].Id, goals[i - 1].Title, goals[i - 1].Description, goals[i - 1].Deadline, goals[i - 1].Timestamp, goals[i - 1].Priority, goals[i - 1].IsDone);
                 }
                 i++;
             }
@@ -60,8 +60,8 @@ namespace TM.Data
             {
                 Goal goal = new Goal();
                 goal.Id = int.Parse(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[0]);
-                goal.Name = tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[1];
-                goal.Text = tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[2];
+                goal.Title = tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[1];
+                goal.Description = tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[2];
                 goal.Deadline = DateTime.Parse(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[3]);
                 goal.Timestamp = DateTime.Parse(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[4]);
                 goal.Priority = GetPriority(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[5]);

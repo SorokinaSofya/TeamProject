@@ -9,8 +9,8 @@ namespace TM.ConsoleUI
         {
             StringBuilder goals = new StringBuilder();
             goals.Append($"ID: {goal.Id}" + "\n");
-            goals.Append($"Name: {goal.Name}" + "\n");
-            goals.Append($"Text: {goal.Text}" + "\n");
+            goals.Append($"Name: {goal.Title}" + "\n");
+            goals.Append($"Text: {goal.Description}" + "\n");
             goals.Append($"Timestamp: {goal.Timestamp}" + "\n");
             goals.Append($"Deadline: {goal.Deadline}" + "\n");
             goals.Append($"Priority: {goal.Priority}" + "\n");

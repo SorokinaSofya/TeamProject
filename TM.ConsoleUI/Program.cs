@@ -89,7 +89,7 @@ namespace TM.ConsoleUI
         {
             var serviceCollection = new ServiceCollection().AddOptions();
             var builder = new ConfigurationBuilder()
-                .SetBasePath(@"/Users/Pavel Petrov/source/repos/TaskManager/TaskManager/TM.Core/Services")
+                .SetBasePath(@"/Users/anast/source/repos/TaskManager/TaskManager/TM.Core/Services")
                 .AddJsonFile("AppConfiguration.json");
             var appConfiguration = builder.Build();
             var version = appConfiguration["version"];

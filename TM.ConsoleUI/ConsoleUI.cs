@@ -104,13 +104,13 @@ namespace TM.ConsoleUI
         {
             var goal = new Goal();
             Console.WriteLine("Введите название задачи");
-            goal.Name = Console.ReadLine();
+            goal.Title = Console.ReadLine();
             Console.WriteLine("Введите описание задачи");
-            goal.Text = Console.ReadLine();
+            goal.Description = Console.ReadLine();
             goal.Deadline = ReadDate();
             goal.Priority = ReadPriority();
             _goalManager.Add(goal);
-            Console.WriteLine("Задача {0} успешно добавлена...", goal.Name);
+            Console.WriteLine("Задача {0} успешно добавлена...", goal.Title);
         }
 
         public void GetAllGoals()
@@ -137,14 +137,14 @@ namespace TM.ConsoleUI
             var tmpName = Console.ReadLine();
             if (tmpName != "")
             {
-                goal.Name = tmpName;
+                goal.Title = tmpName;
             }
 
             Console.WriteLine("Введите описание задачи, если хотите оставить прежнее, нажмите Enter");
             var tmpText = Console.ReadLine();
             if (tmpText != "")
             {
-                goal.Text = tmpText;
+                goal.Description = tmpText;
             }
 
             goal.Deadline = ReadDate();
