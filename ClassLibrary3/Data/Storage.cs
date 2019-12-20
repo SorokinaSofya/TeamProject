@@ -30,7 +30,7 @@ namespace TM.Data
                 }
                 else
                 {
-                    data.WriteLine("{0},{1},{2},{3},{4},{5},{6}", goals[i - 1].Id, goals[i - 1].Title, goals[i - 1].Description, goals[i - 1].Deadline, goals[i - 1].Timestamp, goals[i - 1].Priority, goals[i - 1].IsDone);
+                    data.WriteLine("{0},{1},{2},{3},{4},{5},{6}", goals[i - 1].Id, goals[i - 1].Title, goals[i - 1].Description, goals[i - 1].Deadline, goals[i - 1].Timestamp, goals[i - 1], goals[i - 1].IsDone);
                 }
                 i++;
             }
@@ -64,33 +64,11 @@ namespace TM.Data
                 goal.Description = tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[2];
                 goal.Deadline = DateTime.Parse(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[3]);
                 goal.Timestamp = DateTime.Parse(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[4]);
-                goal.Priority = GetPriority(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[5]);
                 goal.IsDone = bool.Parse(tmpGoals.ElementAt(i).ToString().Split(new char[] { ',' })[6]);
                 goals.Add(goal);
                 i++;
             }
             return goals;
-        }
-
-        private PriorityType GetPriority(string tmpPriority)
-        {
-            PriorityType priority;
-            switch (tmpPriority)
-            {
-                case "High":
-                    priority = Core.Models.PriorityType.High;
-                    break;
-                case "Middle":
-                    priority = Core.Models.PriorityType.Middle;
-                    break;
-                case "Low":
-                    priority = Core.Models.PriorityType.Low;
-                    break;
-                default:
-                    priority = Core.Models.PriorityType.High;
-                    break;
-            }
-            return priority;
         }
     }
 }

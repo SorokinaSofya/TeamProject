@@ -54,7 +54,7 @@ namespace BossApp
         private void WorkersBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Hide();
-            var tasksForWorker = new TasksForWorker();
+            var tasksForWorker = new TasksForWorker(_db, WorkersBox.SelectedItem.ToString());
             tasksForWorker.ShowDialog();
             Show();
         }

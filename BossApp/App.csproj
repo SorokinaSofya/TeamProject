@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="resource\background.png" />
+    <None Remove="resource\taskImage.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ClassLibrary3\Storage.csproj" />
     <ProjectReference Include="..\TM.Core\TM.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resource\background.png" />
+    <Resource Include="resource\taskImage.png" />
   </ItemGroup>
 
 </Project>

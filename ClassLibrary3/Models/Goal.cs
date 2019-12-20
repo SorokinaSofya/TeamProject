@@ -13,6 +13,6 @@ namespace TM.Core
         public DateTime Deadline { get; set; }
         public DateTime Timestamp { get; set; }  // время создания задачи DateTime.Now
         public bool IsDone { get; set; }
-        public List<int> ExecutorsId{ get; set; }
+        public int ExecutorsId{ get; set; }
     }
 }

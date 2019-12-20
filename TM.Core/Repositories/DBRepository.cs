@@ -5,7 +5,7 @@ using Storage.Models;
 
 namespace TM.Core.Repositories
 {
-    public class DBRepository : IGoalRepository
+    public class DBRepository 
     {
         private DBContext db;
 
@@ -62,6 +62,11 @@ namespace TM.Core.Repositories
         {
             return db.Executors.ToList();
         }
+        public void AddNewBoss(Boss boss)
+        {
+            db.Bosses.Add(boss);
+            db.SaveChanges();
+        }
         public void AddNewWorker(Executor worker)
         {
             db.Executors.Add(worker);
@@ -81,6 +86,10 @@ namespace TM.Core.Repositories
         {
             return db.Executors.First(a => a.Email == email);
         }
-
+        public void Update(Goal goal)
+        {
+            db.Update(goal);
+            db.SaveChanges();
+        }
     }
 }

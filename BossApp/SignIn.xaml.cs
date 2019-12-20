@@ -24,7 +24,7 @@ namespace BossApp
         public SignIn()
         {
             InitializeComponent();
-            dBRepository = new DBRepository(new DBContext());
+            dBRepository = new DBRepository();
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
@@ -34,14 +34,14 @@ namespace BossApp
                 if (dBRepository.GetAllBosses().Exists(a => a.Email == LoginField.Text && a.Password == PasswordField.Password))
                 {
                     Hide();
-                    var bossApp = new BossApp(dBRepository);
+                    var bossApp = new BossApp(dBRepository, dBRepository.GetAllBosses().Find(a => a.Email == LoginField.Text && a.Password == PasswordField.Password));
                     bossApp.ShowDialog();
                     Show();
                 }
                 else if (dBRepository.GetAllExecutors().Exists(a => a.Email == LoginField.Text && a.Password == PasswordField.Password))
                 {
                     Hide();
-                    var workerApp = new WorkerApp();
+                    var workerApp = new WorkerApp(dBRepository, dBRepository.GetAllExecutors().Find(a => a.Email == LoginField.Text && a.Password == PasswordField.Password));
                     workerApp.ShowDialog();
                     Show();
                 }

@@ -33,7 +33,7 @@
         <ListBox Name="TasksField" Grid.Row="4" Grid.ColumnSpan="2" FontSize="40" VerticalAlignment="Center" SelectionChanged="TasksField_SelectionChanged" HorizontalAlignment="Center" Width="450" Margin="190,0,50,0" Height="170" />
         <Image Source=".../../resource/taskImage.png" Height="80" HorizontalAlignment="Right"
                Margin="0,0,50,0" Grid.ColumnSpan="2"/>
-        <Button Name="GetDoneButton" Content="Get Done" Grid.ColumnSpan="2" Grid.Row="5" Width="250" FontSize="40" Background="Transparent" BorderBrush="LightBlue" BorderThickness="5"/>
+        <Button Name="GetDoneButton" Click="GetDoneButton_Click" Content="Get Done" Grid.ColumnSpan="2" Grid.Row="5" Width="250" FontSize="40" Background="Transparent" BorderBrush="LightBlue" BorderThickness="5"/>
     </Grid>
     <Window.Background>
         <ImageBrush ImageSource=".../../resource/background.png"/>

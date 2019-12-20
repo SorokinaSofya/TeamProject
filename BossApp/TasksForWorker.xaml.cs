@@ -25,7 +25,7 @@ namespace App
         public TasksForWorker(DBRepository db, string email)
         {
             InitializeComponent();
-            db = _db;
+            _db = db;
             TasksField.ItemsSource = _db.GetAll().Select(o => o.Id + o.Title);
             worker = db.ReturnWorker(email);
             NameField.Text = worker.Name;

@@ -23,7 +23,7 @@ namespace App
         public GiveATask(DBRepository db, Boss boss)
         {
             InitializeComponent();
-            DBRepository _db = db;
+            _db = db;
             this.boss = boss;
             EmailField.ItemsSource = _db.GetAllExecutors().Where(a => a.DepartmentName == boss.DepartmentName).Select(o => o.Email);
         }
@@ -41,6 +41,7 @@ namespace App
                 Deadline = deadline.Value,
             };
             _db.AddNewTask(task);
+            Close();
         }
         
     }

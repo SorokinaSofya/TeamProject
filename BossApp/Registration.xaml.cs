@@ -23,7 +23,7 @@ namespace App
         public Registration(DBRepository db)
         {
             InitializeComponent();
-            DBRepository _db = db;
+            _db = db;
         }
 
         private void SignUpField_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace App
                 Password = password
             };
             _db.AddNewWorker(worker);
-            
+            Close();
         }
     }
 }
