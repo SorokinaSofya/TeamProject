@@ -32,6 +32,11 @@ namespace App
             EmailField.Text = worker.Email;
             DepField.Text = worker.DepartmentName.ToString();
             PositionField.Text = worker.Position;
+            
+        }
+
+        private void TasksField_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
             var task = _db.ReturnTask(worker.Id);
             var str = $"Title: {task.Title} Description: {task.Description} Deadline: {task.Deadline}";
             MessageBox.Show(str);

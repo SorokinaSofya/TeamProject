@@ -24,4 +24,7 @@
         <Image Source=".../../resource/taskImage.png" Height="80" HorizontalAlignment="Right"
                Margin="0,0,50,0"/>
     </Grid>
+    <Window.Background>
+        <ImageBrush ImageSource=".../../resource/background.png"/>
+    </Window.Background>
 </Window>
